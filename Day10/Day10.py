@@ -1,5 +1,3 @@
-SMALL_INPUT = "3,4,1,5"
-
 with open("input.txt", "r") as f:
     INPUT = f.read()
 

@@ -1,9 +1,3 @@
-SMALL_INPUT = '''0
-3
-0
-1
--3'''
-
 with open("input.txt", "r") as f:
     INPUT = f.read()
 array_of_data = map(int, INPUT.split())

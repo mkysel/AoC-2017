@@ -1,18 +1,8 @@
-SMALL_INPUT='''b inc 5 if a > 1
-a inc 1 if b < 5
-c dec -10 if a >= 1
-c inc -20 if c == 10'''
-
 with open("input.txt", "r") as f:
     INPUT = f.read()
 
-def parse_instructions(val):
-    raw = val.split("\n")
-    return map(lambda x: x.split(" "), raw)
-
 
 def solve_challenge(val):
-
     register = dict()
     operators = dict()
     running_max = 0
@@ -26,7 +16,7 @@ def solve_challenge(val):
     operators["inc"] = lambda x, y: x + y
     operators["dec"] = lambda x, y: x - y
 
-    for i in parse_instructions(val):
+    for i in val:
         change_lhs = i[0]
         change_operator = i[1]
         change_rhs = int(i[2])
@@ -44,6 +34,6 @@ def solve_challenge(val):
 
     return max(register.values()), running_max
 
-print solve_challenge(INPUT)
+print solve_challenge(map(lambda x: x.split(" "), INPUT.split("\n")))
 
 

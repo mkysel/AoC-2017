@@ -1,10 +1,11 @@
 with open("input.txt", "r") as f:
     INPUT = f.read()
 
+
 def solve_challenge1(val):
     distance = 1
     nr_elements = 1
-    furthest_points = (1,1,1,1)
+    furthest_points = (1, 1, 1, 1)
 
     while nr_elements < val:
         distance += 2
@@ -15,7 +16,7 @@ def solve_challenge1(val):
     return min(map(lambda x: abs(val-x), closest_points)) + distance//2
 
 
-print solve_challenge1(INPUT)
+print solve_challenge1(int(INPUT))
 
 
 def spiral(N, M):
@@ -59,4 +60,4 @@ def solve_challenge2(val):
             return new_value
 
 
-print solve_challenge2(INPUT)
+print solve_challenge2(int(INPUT))
