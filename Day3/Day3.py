@@ -1,5 +1,5 @@
-INPUT = 289326
-
+with open("input.txt", "r") as f:
+    INPUT = f.read()
 
 def solve_challenge1(val):
     distance = 1

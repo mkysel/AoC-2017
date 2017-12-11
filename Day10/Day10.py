@@ -1,29 +1,14 @@
 SMALL_INPUT = "3,4,1,5"
-INPUT = "63,144,180,149,1,255,167,84,125,65,188,0,2,254,229,24"
+
+with open("input.txt", "r") as f:
+    INPUT = f.read()
 
 
-def solve_challenge1(val, lengths):
+def solve_challenge(lengths, val=range(256), nr_rotations=64):
     pos = 0
     skip = 0
     size_of = len(val)
-    for l in lengths:
-        mid = l//2
-        for idx in xrange(mid):
-            val[(pos+l-idx-1) % size_of], val[(pos+idx) % size_of] = val[(pos+idx) % size_of], val[(pos+l-idx-1) % size_of]
-
-        pos = (pos + l + skip) % size_of
-        skip += 1
-
-    return val
-
-rotated = solve_challenge1(range(256), map(int, INPUT.split(",")))
-print rotated[0] * rotated[1]
-
-def solve_challenge2(val, lengths):
-    pos = 0
-    skip = 0
-    size_of = len(val)
-    for _ in xrange(64):
+    for _ in xrange(nr_rotations):
         for l in lengths:
             mid = l//2
             for idx in xrange(mid):
@@ -31,6 +16,8 @@ def solve_challenge2(val, lengths):
 
             pos = (pos + l + skip) % size_of
             skip += 1
+
+    task1 = val[0] * val[1]
 
     #dense up
     hsh = ""
@@ -54,10 +41,15 @@ def solve_challenge2(val, lengths):
         c ^= val[i*16+15]
         hsh += "%02x" % c
 
-    return hsh
+    return task1, hsh
 
-print solve_challenge2(range(256), map(ord, "")+[17, 31, 73, 47, 23])
-print solve_challenge2(range(256), map(ord, "AoC 2017")+[17, 31, 73, 47, 23])
-print solve_challenge2(range(256), map(ord, "1,2,3")+[17, 31, 73, 47, 23])
-print solve_challenge2(range(256), map(ord, "1,2,4")+[17, 31, 73, 47, 23])
-print solve_challenge2(range(256), map(ord, INPUT)+[17, 31, 73, 47, 23])
+
+# Task 1
+print solve_challenge(map(int, INPUT.split(",")), nr_rotations=1)
+
+# Task 2
+print solve_challenge(map(ord, "")+[17, 31, 73, 47, 23])
+print solve_challenge(map(ord, "AoC 2017")+[17, 31, 73, 47, 23])
+print solve_challenge(map(ord, "1,2,3")+[17, 31, 73, 47, 23])
+print solve_challenge(map(ord, "1,2,4")+[17, 31, 73, 47, 23])
+print solve_challenge(map(ord, INPUT)+[17, 31, 73, 47, 23])

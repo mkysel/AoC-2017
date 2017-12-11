@@ -24,7 +24,6 @@ def solve_challenge(s):
     return result, garbage_chars
 
 
-
 print solve_challenge("{}")
 print solve_challenge("{{{}}}")
 print solve_challenge("{{},{}}")
@@ -34,5 +33,5 @@ print solve_challenge("{{<ab>},{<ab>},{<ab>},{<ab>}}")
 print solve_challenge("{{<!!>},{<!!>},{<!!>},{<!!>}}")
 print solve_challenge("{{<a!>},{<a!>},{<a!>},{<ab>}}")
 
-with file("Day9/day9.txt") as f:
+with file("input.txt") as f:
     print solve_challenge(f.read())

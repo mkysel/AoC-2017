@@ -1,5 +1,6 @@
 SMALL_INPUT = "0 2 7 0"
-INPUT = "14	0 15	12	11	11	3	5	1	6	8	4	9	1	8	4"
+with open("input.txt", "r") as f:
+    INPUT = f.read()
 
 
 def solve_challenge1(val):
