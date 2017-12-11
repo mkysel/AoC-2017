@@ -513,6 +513,7 @@ kebx eild nrskdr meja jxczomh gcne'''
 
 array_of_data = INPUT.split("\n")
 
+
 def solve_challenge1(val):
     cnt = 0
     for passphrase in val:

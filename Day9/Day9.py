@@ -34,5 +34,5 @@ print solve_challenge("{{<ab>},{<ab>},{<ab>},{<ab>}}")
 print solve_challenge("{{<!!>},{<!!>},{<!!>},{<!!>}}")
 print solve_challenge("{{<a!>},{<a!>},{<a!>},{<ab>}}")
 
-with file("day9.txt") as f:
+with file("Day9/day9.txt") as f:
     print solve_challenge(f.read())

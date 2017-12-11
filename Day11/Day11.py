@@ -29,5 +29,5 @@ def solve_challenge(val):
     return (abs(x) + abs(y) + abs(z)) / 2, max(dists)
 
 
-with open("day11.txt", "r") as f:
+with open("Day11/day11.txt", "r") as f:
     print solve_challenge(f.read().split(","))

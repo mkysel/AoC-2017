@@ -1009,6 +1009,7 @@ def parse_instructions(val):
     raw = val.split("\n")
     return map(lambda x: x.split(" "), raw)
 
+
 def solve_challenge(val):
 
     register = dict()

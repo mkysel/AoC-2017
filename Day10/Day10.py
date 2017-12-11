@@ -14,12 +14,10 @@ def solve_challenge1(val, lengths):
         pos = (pos + l + skip) % size_of
         skip += 1
 
-        #print val
-
     return val
 
-#rotated = solve_challenge1(range(256), map(int, INPUT.split(",")))
-#print rotated[0] * rotated[1]
+rotated = solve_challenge1(range(256), map(int, INPUT.split(",")))
+print rotated[0] * rotated[1]
 
 def solve_challenge2(val, lengths):
     pos = 0

@@ -1,13 +1,12 @@
 SMALL_INPUT = "0 2 7 0"
 INPUT = "14	0 15	12	11	11	3	5	1	6	8	4	9	1	8	4"
 
+
 def solve_challenge1(val):
     count = 0
     configurations = set()
     configurations.add(tuple(val))
     sizeof = len(val)
-
-    print val
 
     while True:
         count += 1
@@ -23,8 +22,6 @@ def solve_challenge1(val):
             if idx_raw < idx_of_part:
                 val[idx] += 1
 
-
-        print val
         if tuple(val) in configurations:
             return count
 
@@ -42,9 +39,6 @@ def solve_challenge2(val):
     expected_state = None
     cycle_size = 0
 
-    print val
-
-
     while True:
         count += 1
         # modify val
@@ -60,11 +54,9 @@ def solve_challenge2(val):
                 val[idx] += 1
 
         tpl = tuple(val)
-        print tpl
 
         if not expected_state:
             if tpl in configurations:
-                print "Found TPL", tpl
                 expected_state = tpl
 
             configurations.add(tpl)
@@ -72,7 +64,6 @@ def solve_challenge2(val):
             cycle_size += 1
             if tpl == expected_state:
                 return cycle_size
-
 
 
 print solve_challenge2(map(int, INPUT.split()))

@@ -999,7 +999,7 @@ INPUT = '''0
 -756
 -79'''
 
-SMALL_INPUT='''0
+SMALL_INPUT = '''0
 3
 0
 1
@@ -1011,7 +1011,6 @@ def solve_challenge1(val):
     current_idx = 0
     parsed = map(int, val.split())
     while True:
-        #print parsed, cnt, current_idx
         cnt += 1
         next_idx = current_idx + parsed[current_idx]
         parsed[current_idx] += 1
@@ -1019,8 +1018,6 @@ def solve_challenge1(val):
             return cnt
 
         current_idx = next_idx
-
-
 
 print solve_challenge1(SMALL_INPUT)
 
@@ -1030,7 +1027,6 @@ def solve_challenge2(val):
     current_idx = 0
     parsed = map(int, val.split())
     while True:
-        #print parsed, cnt, current_idx
         cnt += 1
         offset = parsed[current_idx]
         next_idx = current_idx + offset
@@ -1042,7 +1038,5 @@ def solve_challenge2(val):
             return cnt
 
         current_idx = next_idx
-
-
 
 print solve_challenge2(INPUT)
