@@ -1,10 +1,11 @@
-with open("input.txt", "r") as f:
-    INPUT = f.read()
+def calculate_knot_hash(lengths):
+    return solve_challenge(map(ord, lengths) + [17, 31, 73, 47, 23])[1]
 
 
-def solve_challenge(lengths, val=range(256), nr_rotations=64):
+def solve_challenge(lengths, nr_rotations=64):
     pos = 0
     skip = 0
+    val = range(256)
     size_of = len(val)
     for _ in xrange(nr_rotations):
         for l in lengths:
@@ -42,12 +43,18 @@ def solve_challenge(lengths, val=range(256), nr_rotations=64):
     return task1, hsh
 
 
-# Task 1
-print solve_challenge(map(int, INPUT.split(",")), nr_rotations=1)
+if __name__ == "__main__":
+    SMALL_INPUT = "3,4,1,5"
 
-# Task 2
-print solve_challenge(map(ord, "")+[17, 31, 73, 47, 23])
-print solve_challenge(map(ord, "AoC 2017")+[17, 31, 73, 47, 23])
-print solve_challenge(map(ord, "1,2,3")+[17, 31, 73, 47, 23])
-print solve_challenge(map(ord, "1,2,4")+[17, 31, 73, 47, 23])
-print solve_challenge(map(ord, INPUT)+[17, 31, 73, 47, 23])
+    with open("input.txt", "r") as f:
+        INPUT = f.read()
+
+    # Task 1
+    print solve_challenge(map(int, INPUT.split(",")), nr_rotations=1)
+
+    # Task 2
+    print solve_challenge(map(ord, "")+[17, 31, 73, 47, 23])
+    print solve_challenge(map(ord, "AoC 2017")+[17, 31, 73, 47, 23])
+    print solve_challenge(map(ord, "1,2,3")+[17, 31, 73, 47, 23])
+    print solve_challenge(map(ord, "1,2,4")+[17, 31, 73, 47, 23])
+    print solve_challenge(map(ord, INPUT)+[17, 31, 73, 47, 23])
