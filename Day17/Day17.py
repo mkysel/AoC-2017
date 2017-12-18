@@ -1,3 +1,5 @@
+from collections import deque
+
 SMALL_INPUT = "3"
 
 with open("input.txt", "r") as f:
@@ -5,14 +7,13 @@ with open("input.txt", "r") as f:
 
 
 def solve_challenge(val):
-    buffer = [0]
-    current_position = 0
+    buffer = deque([0])
+    searching_for = 50000000
 
-    for next_val in xrange(1, 2018):
-        next_position = (current_position + val) % len(buffer)
-        buffer = buffer[:next_position+1] + [next_val] + buffer[next_position+1:]
-        current_position = next_position+1
+    for next_val in xrange(1, searching_for + 1):
+        buffer.rotate(-val)
+        buffer.append(next_val)
 
-    return buffer[current_position+1]
+    return buffer[(list(buffer).index(0)+1) % len(buffer)]
 
 print solve_challenge(int(INPUT))
