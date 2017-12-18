@@ -3,9 +3,8 @@ SMALL_INPUT = "s1,x3/4,pe/b"
 with open("input.txt", "r") as f:
     INPUT = f.read()
 
-def solve_challenge(val):
-    #dancers = list("abcde")
-    dancers = list("abcdefghijklmnop")
+
+def dance(dancers, val):
 
     for move in val:
         if move[0] == "s":
@@ -26,6 +25,22 @@ def solve_challenge(val):
 
             dancers[idx_l], dancers[idx_r] = dancers[idx_r], dancers[idx_l]
 
-    return ''.join(dancers)
+    return dancers
+
+
+def solve_challenge(val):
+    after_next = dance(list("abcdefghijklmnop"), val)
+    task1 = ''.join(after_next)
+
+    i = 1
+    while i < 1000000000:
+        after_next = dance(after_next, val)
+        i += 1
+        if after_next == list('abcdefghijklmnop'):
+            i = 1000000000 - (1000000000 % i)
+
+    task2 = ''.join(after_next)
+
+    return task1, task2
 
 print solve_challenge(INPUT.split(","))
